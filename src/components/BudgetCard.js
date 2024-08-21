@@ -1,31 +1,32 @@
 import { Button, Card, ProgressBar, Stack } from "react-bootstrap"
 import { currencyFormatter } from "../utils"
+import "../globals.css"
 
 export default function BudgetCard({
   name,
   amount,
   max,
-  gray,
+  gray="true",
   hideButtons,
   onAddExpenseClick,
   onViewExpensesClick,
 }) {
   const classNames = []
   if (amount > max) {
-    classNames.push("bg-danger", "bg-opacity-10")
+    classNames.push("bg-danger", "bg-opacity-50")
   } else if (gray) {
     classNames.push("bg-light")
   }
 
   return (
-    <Card id="tarjeta" className={classNames.join(" ")}>
-      <Card.Body className="bg-secondary">
+    <Card className={classNames.join(" ")}>
+      <Card.Body>
         <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
-          <div className="me-2">{name}</div>
-          <div className="d-flex align-items-baseline">
+          <div className="me-2 fw-bold">{name}</div>
+          <div className="d-flex align-items-baseline fw-bold">
             ${currencyFormatter.format(amount)}
             {max && (
-              <span className="text-muted fs-6 ms-1">
+              <span className="text-muted fs-6 ms-1 fw-bold">
                 / ${currencyFormatter.format(max)}
               </span>
             )}
@@ -38,6 +39,7 @@ export default function BudgetCard({
             min={0}
             max={max}
             now={amount}
+            style={{ border: "2px solid #000" }}
           />
         )}
         {!hideButtons && (

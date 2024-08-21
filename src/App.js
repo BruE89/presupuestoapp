@@ -8,7 +8,7 @@ import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard"
 import TotalBudgetCard from "./components/TotalBudgetCard"
 import { useState } from "react"
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./contexts/BudgetsContext"
-import styles from "./globals.css"
+import "./globals.css"
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
@@ -26,11 +26,11 @@ function App() {
     <div id="principal">
       <Container className="my-4">
         <Stack direction="horizontal" gap="2" className="mb-4">
-          <h1 className="me-auto">Lista de Presupuestos</h1>
+          <h1 className="me-auto text-white">Lista de Presupuestos</h1>
           <Button variant="primary" onClick={() => setShowAddBudgetModal(true)}>
             Agregar Presupuesto
           </Button>
-          <Button variant="outline-primary" onClick={openAddExpenseModal}>
+          <Button variant="outline-primary text-white" onClick={openAddExpenseModal}>
             Agregar Gasto
           </Button>
         </Stack>
